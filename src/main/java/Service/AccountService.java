@@ -18,7 +18,7 @@ public class AccountService {
     if(account.username.isBlank()) {
       return null;
     }
-    if(account.password.length()>4) {
+    if(account.password.length()<4) {
       return null;
     }
     if(accountDAO.geAccountByUsername(account.username) != null) {
