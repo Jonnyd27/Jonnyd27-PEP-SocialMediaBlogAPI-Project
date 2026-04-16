@@ -14,13 +14,13 @@ public class MessageService {
   }
 
   public Message addMessage(Message message) {
-    if(message.message_text.isBlank()) {
+    /*if(message.message_text.isBlank()) {
       return null;
     }
     if(message.message_text.length()>255) {
       return null;
     }
-    /*if(messageDAO.getAccountById(message.posted_by) == null) {
+    if(messageDAO.getAccountById(message.posted_by) == null) {
       return null;
     }*/
     return messageDAO.insertMessage(message);
