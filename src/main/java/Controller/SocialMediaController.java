@@ -6,8 +6,6 @@ import io.javalin.http.Context;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import DAO.AccountDAO;
-import DAO.MessageDAO;
 import Service.AccountService;
 import Service.MessageService;
 import Model.Account;
@@ -73,7 +71,7 @@ public class SocialMediaController {
         if(addedMessage==null) {
             ctx.status(400);
         } else{
-            ctx.json(mapper.writeValueAsString(addedMessage));
+            ctx.json(addedMessage);
         }
     }
 }
