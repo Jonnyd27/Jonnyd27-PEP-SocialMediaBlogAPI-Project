@@ -44,6 +44,6 @@ public class MessageDAO {
       }catch(SQLException e) {
         System.out.println(e.getMessage());
       }
-      return message;
+      return null;
     }
 }

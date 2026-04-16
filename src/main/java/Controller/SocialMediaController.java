@@ -71,7 +71,7 @@ public class SocialMediaController {
         if(addedMessage==null) {
             ctx.status(400);
         } else{
-            ctx.json(addedMessage);
+            ctx.json(mapper.writeValueAsString(addedMessage));
         }
     }
 }
