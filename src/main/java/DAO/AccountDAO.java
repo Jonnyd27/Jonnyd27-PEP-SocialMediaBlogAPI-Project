@@ -51,7 +51,7 @@ public class AccountDAO {
   public Account login(Account account) {
     Connection connection = ConnectionUtil.getConnection();
     try{
-      String sql = "select * from Account where username = ? && password = ?";
+      String sql = "select * from Account where username = ? and password = ?";
       PreparedStatement ps = connection.prepareStatement(sql);
       ps.setString(1, account.username);
       ps.setString(2, account.password);
