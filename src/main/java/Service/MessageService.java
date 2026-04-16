@@ -20,9 +20,9 @@ public class MessageService {
     if(message.message_text.length()>255) {
       return null;
     }
-    if(messageDAO.getAccountById(message.posted_by) == null) {
+    /*if(messageDAO.getAccountById(message.posted_by) == null) {
       return null;
-    }
+    }*/
     return messageDAO.insertMessage(message);
   }
 }

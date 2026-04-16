@@ -29,7 +29,7 @@ public class MessageDAO {
     public Message insertMessage(Message message) {
       Connection connection = ConnectionUtil.getConnection();
       try{
-        String sql = "insert into Message (posted_by, message_text, time_posted_epoch) values (?,?,?)";
+        String sql = "insert into message (posted_by, message_text, time_posted_epoch) values (?,?,?)";
         PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         ps.setInt(1, message.posted_by);
         ps.setString(2, message.message_text);
