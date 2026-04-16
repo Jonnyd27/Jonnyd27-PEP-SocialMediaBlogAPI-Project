@@ -3,11 +3,7 @@ package DAO;
 import Model.Account;
 import Util.ConnectionUtil;
 
-import static org.mockito.ArgumentMatchers.contains;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class AccountDAO {
   public Account insertAccount(Account account) {
@@ -29,7 +25,7 @@ public class AccountDAO {
     return account;
   }
 
-  public Account geAccountByUsername(String username) {
+  public Account getAccountByUsername(String username) {
     Connection connection = ConnectionUtil.getConnection();
     try{
       String sql = "select * from Account where username = ?";

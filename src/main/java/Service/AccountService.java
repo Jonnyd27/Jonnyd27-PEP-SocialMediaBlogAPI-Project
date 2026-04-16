@@ -21,7 +21,7 @@ public class AccountService {
     if(account.password.length()<4) {
       return null;
     }
-    if(accountDAO.geAccountByUsername(account.username) != null) {
+    if(accountDAO.getAccountByUsername(account.username) != null) {
       return null;
     }
     return accountDAO.insertAccount(account);
