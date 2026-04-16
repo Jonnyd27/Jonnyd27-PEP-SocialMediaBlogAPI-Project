@@ -3,6 +3,8 @@ package DAO;
 import Model.Account;
 import Util.ConnectionUtil;
 
+import static org.mockito.ArgumentMatchers.contains;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,26 @@ public class AccountDAO {
         return account;
       }
       
+    }catch(SQLException e) {
+      System.out.println(e.getMessage());
+    }
+    return null;
+  }
+
+  public Account login(Account account) {
+    Connection connection = ConnectionUtil.getConnection();
+    try{
+      String sql = "select * from Account where username = ? && password = ?";
+      PreparedStatement ps = connection.prepareStatement(sql);
+      ps.setString(1, account.username);
+      ps.setString(2, account.password);
+
+      ResultSet rs = ps.executeQuery();
+
+      while(rs.next()) {
+        Account account2 = new Account(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"));
+        return account2;
+      }
     }catch(SQLException e) {
       System.out.println(e.getMessage());
     }
