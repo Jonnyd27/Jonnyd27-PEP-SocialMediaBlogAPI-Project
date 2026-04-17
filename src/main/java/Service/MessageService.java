@@ -25,4 +25,9 @@ public class MessageService {
     }
     return messageDAO.insertMessage(message);
   }
+
+  public List<Message> getAllMessages() {
+    return messageDAO.getAllMessages();
+  }
+
 }

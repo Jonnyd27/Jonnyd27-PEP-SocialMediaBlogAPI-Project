@@ -35,7 +35,7 @@ public class SocialMediaController {
         app.post("/register",this::postAccountRegistrationHandler);
         app.post("/login",this::postLoginHandler);
         app.post("/messages",this::postMessageCreationHandler);
-        
+        app.get("/messages", this::getAllMessagesHandler);
         return app;
     }
 
@@ -77,4 +77,9 @@ public class SocialMediaController {
             ctx.json(addedMessage);
         }
     }
+
+    private void getAllMessagesHandler(Context ctx) throws JsonProcessingException {
+        ctx.json(messageService.getAllMessages());
+    }
+
 }
