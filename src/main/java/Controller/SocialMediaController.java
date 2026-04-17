@@ -35,6 +35,7 @@ public class SocialMediaController {
         app.post("/register",this::postAccountRegistrationHandler);
         app.post("/login",this::postLoginHandler);
         app.post("/messages",this::postMessageCreationHandler);
+        
         return app;
     }
 
