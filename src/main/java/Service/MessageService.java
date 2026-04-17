@@ -39,4 +39,14 @@ public class MessageService {
     return messageDAO.deleteMessageByMessageId(message_id);
   }
 
+  public Message updateMessageByMessageId(int message_id, Message message) {
+    if(message.message_text.isBlank() || message.message_text.length() > 255) {
+      return null;
+    }
+    if(getMessageById(message_id) == null) {
+      return null;
+    }
+    return messageDAO.updateMessageByMessageId(message_id, message);
+  }
+
 }
