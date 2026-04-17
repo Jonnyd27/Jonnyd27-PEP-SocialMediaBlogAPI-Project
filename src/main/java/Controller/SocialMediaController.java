@@ -60,7 +60,7 @@ public class SocialMediaController {
         if(login == null) {
             ctx.status(401);
         }else{
-            ctx.json(mapper.writeValueAsString(login));
+            ctx.json(login);
         }
     }
     
@@ -68,10 +68,11 @@ public class SocialMediaController {
         ObjectMapper mapper = new ObjectMapper();
         Message message = mapper.readValue(ctx.body(), Message.class);
         Message addedMessage = messageService.addMessage(message);
+        System.out.println(addedMessage);
         if(addedMessage==null) {
             ctx.status(400);
         } else{
-            ctx.json(mapper.writeValueAsString(addedMessage));
+            ctx.json(addedMessage);
         }
     }
 }
