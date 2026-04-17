@@ -27,6 +27,7 @@ public class SocialMediaController {
      AccountService accountService;
      public SocialMediaController(){
         accountService = new AccountService();
+        messageService = new MessageService();
      }
 
     public Javalin startAPI() {
