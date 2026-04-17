@@ -80,7 +80,7 @@ public class MessageDAO {
       }catch(SQLException e) {
         System.out.println(e.getMessage());
       }
-      return null;
+      return new Message();
     }
 
     public Message deleteMessageByMessageId(int message_id) {
