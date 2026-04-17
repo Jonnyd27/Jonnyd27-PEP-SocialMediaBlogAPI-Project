@@ -108,7 +108,9 @@ public class MessageDAO {
         ps.setInt(2, message_id);
         ps.executeUpdate();
 
-        return new Message(message_id, message.getPosted_by(), message.getMessage_text(), message.getTime_posted_epoch());
+        Message messageFromDatabase = getMessageById(message_id);
+        Message updatedMessage = new Message(message_id, messageFromDatabase.getPosted_by(), message.getMessage_text(), messageFromDatabase.getTime_posted_epoch());
+        return updatedMessage;
       } catch(SQLException e) {
         System.out.println(e.getMessage());
       }
