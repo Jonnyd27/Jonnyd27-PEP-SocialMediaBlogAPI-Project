@@ -39,7 +39,7 @@ public class SocialMediaController {
         app.get("/messages/{message_id}", this::getMessageByIdHandler);
         app.delete("/messages/{message_id}", this::deleteMessageByMessageIdHandler);
         app.patch("/messages/{message_id}", this::patchMessageByMessageIdHandler);
-        app.get("/acounts/{account_id}/messages", this::getAllMessagesByAccountIdHandler);
+        app.get("/accounts/{account_id}/messages", this::getAllMessagesByAccountIdHandler);
         return app;
     }
 
