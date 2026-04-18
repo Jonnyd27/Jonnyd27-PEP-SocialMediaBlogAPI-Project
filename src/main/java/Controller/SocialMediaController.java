@@ -92,7 +92,12 @@ public class SocialMediaController {
 
     private void deleteMessageByMessageIdHandler(Context ctx) throws JsonProcessingException {
         int message_id = Integer.parseInt(ctx.pathParam("message_id"));
-        ctx.json(messageService.deleteMessageByMessageId(message_id));
+        Message deleted = messageService.deleteMessageByMessageId(message_id);
+        if(deleted == null) {
+            ctx.result("");
+        }else {
+            ctx.json(deleted);
+        }
     }
 
     private void patchMessageByMessageIdHandler(Context ctx) throws JsonProcessingException {
