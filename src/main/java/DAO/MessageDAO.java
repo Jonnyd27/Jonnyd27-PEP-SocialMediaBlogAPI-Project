@@ -80,7 +80,7 @@ public class MessageDAO {
       }catch(SQLException e) {
         System.out.println(e.getMessage());
       }
-      return new Message();
+      return null;
     }
 
     public Message deleteMessageByMessageId(int message_id) {
@@ -101,7 +101,7 @@ public class MessageDAO {
     public Message updateMessageByMessageId(int message_id, Message message) {
       Connection connection = ConnectionUtil.getConnection();
       try{
-        String sql = "update message set message_text = ?, where message_id = ?";
+        String sql = "update message set message_text = ? where message_id = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
 
         ps.setString(1, message.getMessage_text());
