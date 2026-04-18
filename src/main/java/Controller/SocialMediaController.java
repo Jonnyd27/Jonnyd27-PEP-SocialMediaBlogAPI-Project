@@ -91,7 +91,7 @@ public class SocialMediaController {
         if(message == null) {
             ctx.result("");
         } else {
-            ctx.json(message_id);
+            ctx.json(message);
         }
     }
 
